@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1q-8q-Hen">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="g8J-bG-UGD">
+            <objects>
+                <navigationController id="F1q-8q-Hen" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e3t-RJ-26p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cDZ-p1-aGP" kind="relationship" relationship="rootViewController" id="Wsx-6d-UsO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1r-gO-mX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-849" y="127"/>
+        </scene>
+        <!--Gallery View Controller-->
+        <scene sceneID="xbC-Sr-k3v">
+            <objects>
+                <viewController id="cDZ-p1-aGP" customClass="GalleryViewController" customModule="NasaDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xnf-uR-cDV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="byx-4Z-hTc">
+                                <rect key="frame" x="0.0" y="142" width="375" height="525"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="GSw-8R-WE9">
+                                    <size key="itemSize" width="139" height="155"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotosCollectionViewCell" id="vhI-dE-0Ck" userLabel="GalleryCollectionViewCell" customClass="GalleryCollectionViewCell" customModule="NasaDemo" customModuleProvider="target">
+                                        <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NY3-YF-E3c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="200" height="200"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="NY3-YF-E3c" id="MZT-dR-xBU"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="12p-Na-2Ra">
+                                <rect key="frame" x="45.5" y="64" width="284" height="32"/>
+                                <segments>
+                                    <segment title="Curiosity"/>
+                                    <segment title="Opportunity"/>
+                                    <segment title="Spirit"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedButtonAction:" destination="cDZ-p1-aGP" eventType="valueChanged" id="Kjx-91-0He"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="12p-Na-2Ra" firstAttribute="top" secondItem="LwE-GT-74f" secondAttribute="top" constant="20" id="8Qn-Td-k8Y"/>
+                            <constraint firstItem="byx-4Z-hTc" firstAttribute="leading" secondItem="LwE-GT-74f" secondAttribute="leading" id="KRS-ct-gPE"/>
+                            <constraint firstItem="byx-4Z-hTc" firstAttribute="top" secondItem="12p-Na-2Ra" secondAttribute="bottom" constant="47" id="c5p-eX-ngQ"/>
+                            <constraint firstItem="byx-4Z-hTc" firstAttribute="trailing" secondItem="LwE-GT-74f" secondAttribute="trailing" id="dv4-z8-ViF"/>
+                            <constraint firstItem="12p-Na-2Ra" firstAttribute="centerX" secondItem="LwE-GT-74f" secondAttribute="centerX" id="n3o-aO-uRb"/>
+                            <constraint firstItem="byx-4Z-hTc" firstAttribute="bottom" secondItem="LwE-GT-74f" secondAttribute="bottom" id="pRH-AR-mbG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LwE-GT-74f"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sys-fl-6H6"/>
+                    <connections>
+                        <outlet property="collectionView" destination="byx-4Z-hTc" id="lMv-wE-Zlx"/>
+                        <outlet property="flowLayout" destination="GSw-8R-WE9" id="PBw-Lr-7RS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLd-cb-Zb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42.399999999999999" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>

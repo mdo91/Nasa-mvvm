@@ -13,6 +13,11 @@
 		54410F45251CA78300BAF7EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54410F43251CA78300BAF7EB /* Main.storyboard */; };
 		54410F47251CA78900BAF7EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54410F46251CA78900BAF7EB /* Assets.xcassets */; };
 		54410F4A251CA78900BAF7EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54410F48251CA78900BAF7EB /* LaunchScreen.storyboard */; };
+		54410F5A251CB97700BAF7EB /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410F59251CB97700BAF7EB /* GalleryViewController.swift */; };
+		54410F5D251CBCBE00BAF7EB /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54410F5C251CBCBE00BAF7EB /* Main.xcassets */; };
+		54410F5F251CE13100BAF7EB /* VehicleInfo .swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410F5E251CE13100BAF7EB /* VehicleInfo .swift */; };
+		54410F61251CE24700BAF7EB /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410F60251CE24700BAF7EB /* Rover.swift */; };
+		54410F63251CE4F800BAF7EB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410F62251CE4F800BAF7EB /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		54410F46251CA78900BAF7EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54410F49251CA78900BAF7EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54410F4B251CA78900BAF7EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54410F59251CB97700BAF7EB /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		54410F5C251CBCBE00BAF7EB /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
+		54410F5E251CE13100BAF7EB /* VehicleInfo .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VehicleInfo .swift"; sourceTree = "<group>"; };
+		54410F60251CE24700BAF7EB /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
+		54410F62251CE4F800BAF7EB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,68 @@
 		54410F3C251CA78300BAF7EB /* NasaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				54410F51251CA79E00BAF7EB /* App Main */,
 				54410F3D251CA78300BAF7EB /* AppDelegate.swift */,
 				54410F3F251CA78300BAF7EB /* SceneDelegate.swift */,
 				54410F41251CA78300BAF7EB /* ViewController.swift */,
-				54410F43251CA78300BAF7EB /* Main.storyboard */,
 				54410F46251CA78900BAF7EB /* Assets.xcassets */,
-				54410F48251CA78900BAF7EB /* LaunchScreen.storyboard */,
 				54410F4B251CA78900BAF7EB /* Info.plist */,
 			);
 			path = NasaDemo;
+			sourceTree = "<group>";
+		};
+		54410F51251CA79E00BAF7EB /* App Main */ = {
+			isa = PBXGroup;
+			children = (
+				54410F58251CADF700BAF7EB /* Recources */,
+				54410F55251CA7D300BAF7EB /* Controllers */,
+				54410F54251CA7CB00BAF7EB /* Presenter */,
+				54410F53251CA7BF00BAF7EB /* Views */,
+				54410F52251CA7AD00BAF7EB /* Model */,
+			);
+			path = "App Main";
+			sourceTree = "<group>";
+		};
+		54410F52251CA7AD00BAF7EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54410F5E251CE13100BAF7EB /* VehicleInfo .swift */,
+				54410F60251CE24700BAF7EB /* Rover.swift */,
+				54410F62251CE4F800BAF7EB /* Camera.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54410F53251CA7BF00BAF7EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54410F43251CA78300BAF7EB /* Main.storyboard */,
+				54410F48251CA78900BAF7EB /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		54410F54251CA7CB00BAF7EB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		54410F55251CA7D300BAF7EB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				54410F59251CB97700BAF7EB /* GalleryViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		54410F58251CADF700BAF7EB /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				54410F5C251CBCBE00BAF7EB /* Main.xcassets */,
+			);
+			path = Recources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +190,7 @@
 			files = (
 				54410F4A251CA78900BAF7EB /* LaunchScreen.storyboard in Resources */,
 				54410F47251CA78900BAF7EB /* Assets.xcassets in Resources */,
+				54410F5D251CBCBE00BAF7EB /* Main.xcassets in Resources */,
 				54410F45251CA78300BAF7EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +204,10 @@
 			files = (
 				54410F42251CA78300BAF7EB /* ViewController.swift in Sources */,
 				54410F3E251CA78300BAF7EB /* AppDelegate.swift in Sources */,
+				54410F61251CE24700BAF7EB /* Rover.swift in Sources */,
+				54410F5F251CE13100BAF7EB /* VehicleInfo .swift in Sources */,
+				54410F5A251CB97700BAF7EB /* GalleryViewController.swift in Sources */,
+				54410F63251CE4F800BAF7EB /* Camera.swift in Sources */,
 				54410F40251CA78300BAF7EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
