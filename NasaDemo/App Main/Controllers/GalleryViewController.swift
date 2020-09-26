@@ -39,6 +39,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     var isPageRefreshing = false
     var pageIndex = 1
     var selectedRover = "curiosity"
+    var viewController: ViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,10 +163,6 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         
     }
-    
-    
-    
-
     // MARK: UICollectionViewDataSource
     
     
@@ -206,6 +203,31 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.viewController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? ViewController
+
+       //GalleryCollectionViewCell
+
+        self.viewController!.modalPresentationStyle = .popover
+        
+        let popover = self.viewController!.popoverPresentationController
+        
+        let cell = self.collectionView.cellForItem(at: indexPath) as! GalleryCollectionViewCell
+        let _ = viewController?.view
+        
+        self.viewController?.imageView.image = cell.imageView.image
+        self.viewController?.UIConfig(roverInfo: self.vehicles[indexPath.row])
+
+        popover?.passthroughViews = [self.view]
+        popover?.sourceRect = CGRect(x: 250, y: 500, width: 0, height: 0)
+        self.viewController!.preferredContentSize = CGSize(width: 250, height: 419)
+
+                 popover!.sourceView = self.view
+
+        self.present(self.viewController!, animated: true, completion: nil)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -42,12 +42,8 @@ public final class VehicleInfo{
     }
     
     public init?(json: [String:Any]){
-        print("json \(json)")
-        
-//        guard let json = json[Keys.photos] as? [String:Any] else{
-//            print("Error Parsing photos")
-//            return nil
-//        }
+       // print("json \(json)")
+ 
         let imageURL1: URL?
         
         if let imageURLString = json[Keys.img_src] as? String{
@@ -60,7 +56,7 @@ public final class VehicleInfo{
         
        
         guard let earth_date = json[Keys.earth_date] as? String,let jsonCamera = json[Keys.camera] as? [String:Any], let jsonRover = json[Keys.rover] as? [String:Any] else{
-             print("Error Parsing earth_date \(json[Keys.earth_date])")
+    //         print("Error Parsing earth_date \(json[Keys.earth_date])")
             return nil
         }
         
@@ -81,23 +77,13 @@ public final class VehicleInfo{
         
         self.rover = Rover(name: rover_name, landing_date: rover_landing_date, launch_date: rover_launch_date, status: Status(rawValue: roverStatus)!)
         
-        
-        //return nil
-        
      }
     
     public class func array(jsonArray: [[String:Any]])-> [VehicleInfo]{
-     //   print("array.jsonArray \(jsonArray)")
+
         var array : [VehicleInfo] = []
-//        guard let jsonArray = jsonArray[["photos"]] as? [String:Any]else{
-//
-//
-      //var data =  VehicleInfo(json:json )
-     //   print("array2: \(array2)")
+
         for json in jsonArray{
-
-           // print("array.json \(json as! [String:Any])")
-
 
             guard let vehicle = VehicleInfo(json:json ) else{ continue}
             array.append(vehicle)

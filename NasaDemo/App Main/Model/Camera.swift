@@ -16,7 +16,7 @@ struct Camera {
     
     init(name: String, full_name: String ) {
         self.name = name
-        self.full_name = name
+        self.full_name = full_name
     }
     
 }

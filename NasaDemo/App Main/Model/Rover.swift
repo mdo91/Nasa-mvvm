@@ -28,6 +28,7 @@ struct Rover {
         self.launch_date = launch_date
         self.landing_date = landing_date
         self.status = status
+        
     }
     
 }
