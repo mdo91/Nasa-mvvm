@@ -69,7 +69,6 @@
 				54410F51251CA79E00BAF7EB /* App Main */,
 				54410F3D251CA78300BAF7EB /* AppDelegate.swift */,
 				54410F3F251CA78300BAF7EB /* SceneDelegate.swift */,
-				54410F41251CA78300BAF7EB /* ViewController.swift */,
 				54410F46251CA78900BAF7EB /* Assets.xcassets */,
 				54410F4B251CA78900BAF7EB /* Info.plist */,
 			);
@@ -118,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				54410F59251CB97700BAF7EB /* GalleryViewController.swift */,
+				54410F41251CA78300BAF7EB /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
