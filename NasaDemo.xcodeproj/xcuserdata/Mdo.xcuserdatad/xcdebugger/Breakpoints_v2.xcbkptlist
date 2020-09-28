@@ -142,8 +142,8 @@
             filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,9 +158,9 @@
             filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "loadVehicles(pageIndex:selectedRover:)"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "loadVehicles(pageIndex:selectedRover:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -174,9 +174,9 @@
             filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "loadVehicles(pageIndex:selectedRover:)"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "loadVehicles(pageIndex:selectedRover:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -190,9 +190,9 @@
             filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "loadVehicles(pageIndex:selectedRover:)"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "loadVehicles(pageIndex:selectedRover:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -206,8 +206,8 @@
             filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>

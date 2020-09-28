@@ -84,6 +84,8 @@ public final class VehicleInfo{
         var array : [VehicleInfo] = []
 
         for json in jsonArray{
+            
+            print("json \(json)")
 
             guard let vehicle = VehicleInfo(json:json ) else{ continue}
             array.append(vehicle)
@@ -93,6 +95,37 @@ public final class VehicleInfo{
         return array
     }
     
+//    public class func getCamerasByRover(name: String, rover array : [VehicleInfo] ) -> [Camera]{
+//
+//        var cameraArray : [Camera] = []
+//
+//        let filetrByCamera = array.filter { $0.rover.name ==  name }
+//
+//        let cameraResult = filetrByCamera.map { $0.camera
+//        }
+//        cameraArray = cameraResult
+//        return cameraArray
+//        }
+    
+    public class func getRover( by name: String, array: [VehicleInfo] ) -> [VehicleInfo]{
+
+        var roverArray : [VehicleInfo] = []
+        
+     //   print("getRover.count \(array.count)")
+        
+
+        let filetrByName = array.filter { print("\($0.rover.name)")
+            return $0.rover.name == name
+            
+           // print("\($0.rover.name)")
+        }
+
+        roverArray = filetrByName
+        return roverArray
+        }
+
+    }
+    
  
     
-}
+

@@ -18,6 +18,9 @@
 		54410F5F251CE13100BAF7EB /* VehicleInfo .swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410F5E251CE13100BAF7EB /* VehicleInfo .swift */; };
 		54410F61251CE24700BAF7EB /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410F60251CE24700BAF7EB /* Rover.swift */; };
 		54410F63251CE4F800BAF7EB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410F62251CE4F800BAF7EB /* Camera.swift */; };
+		546B1EDC2522167700D0B856 /* Int+HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EDB2522167700D0B856 /* Int+HTTPStatusCode.swift */; };
+		546B1EDE2522264F00D0B856 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EDD2522264F00D0B856 /* NetworkError.swift */; };
+		546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EDF2522335A00D0B856 /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		54410F5E251CE13100BAF7EB /* VehicleInfo .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VehicleInfo .swift"; sourceTree = "<group>"; };
 		54410F60251CE24700BAF7EB /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
 		54410F62251CE4F800BAF7EB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		546B1EDB2522167700D0B856 /* Int+HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+HTTPStatusCode.swift"; sourceTree = "<group>"; };
+		546B1EDD2522264F00D0B856 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		546B1EDF2522335A00D0B856 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +73,10 @@
 			isa = PBXGroup;
 			children = (
 				54410F51251CA79E00BAF7EB /* App Main */,
+				546B1ED82522153100D0B856 /* Networking */,
 				54410F3D251CA78300BAF7EB /* AppDelegate.swift */,
 				54410F3F251CA78300BAF7EB /* SceneDelegate.swift */,
 				54410F46251CA78900BAF7EB /* Assets.xcassets */,
-				54410F4B251CA78900BAF7EB /* Info.plist */,
 			);
 			path = NasaDemo;
 			sourceTree = "<group>";
@@ -78,6 +84,7 @@
 		54410F51251CA79E00BAF7EB /* App Main */ = {
 			isa = PBXGroup;
 			children = (
+				546B1EE12522360200D0B856 /* Supporting Files */,
 				54410F58251CADF700BAF7EB /* Recources */,
 				54410F55251CA7D300BAF7EB /* Controllers */,
 				54410F54251CA7CB00BAF7EB /* Presenter */,
@@ -128,6 +135,40 @@
 				54410F5C251CBCBE00BAF7EB /* Main.xcassets */,
 			);
 			path = Recources;
+			sourceTree = "<group>";
+		};
+		546B1ED82522153100D0B856 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EDA2522155C00D0B856 /* Extentions */,
+				546B1ED92522154800D0B856 /* Models */,
+				546B1EDF2522335A00D0B856 /* NetworkClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		546B1ED92522154800D0B856 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EDD2522264F00D0B856 /* NetworkError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		546B1EDA2522155C00D0B856 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EDB2522167700D0B856 /* Int+HTTPStatusCode.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		546B1EE12522360200D0B856 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54410F4B251CA78900BAF7EB /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,11 +243,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				546B1EDC2522167700D0B856 /* Int+HTTPStatusCode.swift in Sources */,
+				546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */,
 				54410F42251CA78300BAF7EB /* ViewController.swift in Sources */,
 				54410F3E251CA78300BAF7EB /* AppDelegate.swift in Sources */,
 				54410F61251CE24700BAF7EB /* Rover.swift in Sources */,
 				54410F5F251CE13100BAF7EB /* VehicleInfo .swift in Sources */,
 				54410F5A251CB97700BAF7EB /* GalleryViewController.swift in Sources */,
+				546B1EDE2522264F00D0B856 /* NetworkError.swift in Sources */,
 				54410F63251CE4F800BAF7EB /* Camera.swift in Sources */,
 				54410F40251CA78300BAF7EB /* SceneDelegate.swift in Sources */,
 			);

@@ -54,7 +54,10 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
-        loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+        loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+            
+        }
+        )
 
     }
     
@@ -66,13 +69,30 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         switch sender.selectedSegmentIndex {
         case 0:
              selectedRover = "Curiosity"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+             
+             loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+                let roverArray = VehicleInfo.getRover(by: self.selectedRover, array: self.vehicles)
+                let cameraArray = roverArray.map {
+                   $0.camera
+                }
+                print("available cameras \(cameraArray.count)")
+                
+             })
+             
+
+            
         case 1:
             selectedRover = "Opportunity"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+            loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+                
+            })
         case 2:
             selectedRover = "Spirit"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+            loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+                
+                    
+                }
+            )
         default:
             break
         }
@@ -82,7 +102,9 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     
-    func loadVehicles(pageIndex:Int, selectedRover:String){
+    func loadVehicles(pageIndex:Int, selectedRover:String, completionHandler: @escaping () -> Void)
+    
+    {
         
         collectionView.refreshControl?.beginRefreshing()
        // isPageRefreshing = true
@@ -137,6 +159,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
                         
                         selfStrong.collectionView.reloadData()
                         selfStrong.isPageRefreshing = false
+                        completionHandler()
                         
                     }
                     
@@ -244,7 +267,9 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
             if self.vehicles.count < 25{
                 
             }else{
-                loadVehicles(pageIndex: pageIndex, selectedRover: selectedRover)
+                loadVehicles(pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {
+                    
+                })
             }
             
                 isPageRefreshing = true
