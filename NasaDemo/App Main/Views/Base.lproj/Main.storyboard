@@ -23,6 +23,16 @@
             </objects>
             <point key="canvasLocation" x="-849" y="127"/>
         </scene>
+        <!--Filter-->
+        <scene sceneID="6gf-oI-JqO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Filter" id="Zf9-vc-g9Z" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WZY-9Q-5pH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VaC-o2-B6c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="-350"/>
+        </scene>
         <!--Gallery View Controller-->
         <scene sceneID="xbC-Sr-k3v">
             <objects>
@@ -85,7 +95,11 @@
                         <viewLayoutGuide key="safeArea" id="LwE-GT-74f"/>
                     </view>
                     <navigationItem key="navigationItem" id="Sys-fl-6H6">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="decrease.indent" catalog="system" id="dva-Ei-16T"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="decrease.indent" catalog="system" id="dva-Ei-16T">
+                            <connections>
+                                <action selector="FilteringOptionAction:" destination="cDZ-p1-aGP" id="MMr-ML-l6Q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="byx-4Z-hTc" id="lMv-wE-Zlx"/>

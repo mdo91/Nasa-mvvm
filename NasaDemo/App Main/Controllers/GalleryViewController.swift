@@ -142,5 +142,12 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         
     }
+    
+    @IBAction func FilteringOptionAction(_ sender: Any) {
+        
+        let next = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "filterTableView") as! FilterTableViewController
+        self.navigationController?.pushViewController(next, animated: true)
+    }
+    
 
 }
