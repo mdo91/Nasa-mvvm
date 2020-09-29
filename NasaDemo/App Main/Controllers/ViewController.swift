@@ -31,14 +31,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func UIConfig(roverInfo: VehicleInfo){
+    func UIConfig(roverInfo: GalleryViewModel){
         
-        roverNameLable.text = roverInfo.rover.name
-        launchDateLable.text = roverInfo.rover.launch_date
-        LandingDateLable.text = roverInfo.rover.landing_date
-        statusLable.text = roverInfo.rover.status.rawValue
-        cameraNameLable.text = roverInfo.camera.name
-        cameraFullNameLable.text = roverInfo.camera.full_name
+        roverNameLable.text = roverInfo.vehicle.rover.name
+        launchDateLable.text = roverInfo.vehicle.rover.launch_date
+        LandingDateLable.text = roverInfo.vehicle.rover.landing_date
+        statusLable.text = roverInfo.vehicle.rover.status.rawValue
+        cameraNameLable.text = roverInfo.vehicle.camera.name
+        cameraFullNameLable.text = roverInfo.vehicle.camera.full_name
         
     }
 

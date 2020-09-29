@@ -24,6 +24,7 @@
 		546B1EE3252237C600D0B856 /* ServerEnvironments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 546B1EE2252237C600D0B856 /* ServerEnvironments.plist */; };
 		546B1EE625225AE400D0B856 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE525225AE400D0B856 /* Constants.swift */; };
 		546B1EE825231E0000D0B856 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE725231E0000D0B856 /* GalleryViewModel.swift */; };
+		546B1EEA25233B6300D0B856 /* GalleryViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE925233B6300D0B856 /* GalleryViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		546B1EE2252237C600D0B856 /* ServerEnvironments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServerEnvironments.plist; sourceTree = "<group>"; };
 		546B1EE525225AE400D0B856 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		546B1EE725231E0000D0B856 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		546B1EE925233B6300D0B856 /* GalleryViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				54410F59251CB97700BAF7EB /* GalleryViewController.swift */,
 				54410F41251CA78300BAF7EB /* ViewController.swift */,
+				546B1EE925233B6300D0B856 /* GalleryViewControllerExtension.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				546B1EE825231E0000D0B856 /* GalleryViewModel.swift in Sources */,
 				546B1EE625225AE400D0B856 /* Constants.swift in Sources */,
 				546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */,
+				546B1EEA25233B6300D0B856 /* GalleryViewControllerExtension.swift in Sources */,
 				54410F42251CA78300BAF7EB /* ViewController.swift in Sources */,
 				54410F3E251CA78300BAF7EB /* AppDelegate.swift in Sources */,
 				54410F61251CE24700BAF7EB /* Rover.swift in Sources */,

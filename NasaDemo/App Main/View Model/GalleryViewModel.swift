@@ -8,7 +8,25 @@
 
 import Foundation
 
+typealias BlockVoid = () -> Void
+typealias blockWithRovers = ([VehicleInfo]) -> Void
 
-class GalleryViewModel{
+protocol GallaryViewModelProtocol {
     
+     var vehicle : VehicleInfo { get }
+}
+
+
+public class GalleryViewModel: GallaryViewModelProtocol {
+
+    
+    public let vehicle: VehicleInfo
+
+    
+    public init(vehicle:VehicleInfo){
+        
+        self.vehicle = vehicle
+
+    }
+
 }
