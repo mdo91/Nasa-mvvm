@@ -21,7 +21,7 @@ extension GalleryViewController{
 
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           // #warning Incomplete implementation, return the number of items
-          return vehiclesViewModel.count
+        return vehiclesViewModel.vehicles.count
           
       }
 
@@ -35,7 +35,7 @@ extension GalleryViewController{
           
                 DispatchQueue.global().async {
 
-                  if  let url = self.vehiclesViewModel[indexPath.row].vehicle.img_src, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                    if  let url = self.vehiclesViewModel.vehicles[indexPath.row].img_src, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
 
                         DispatchQueue.main.async {
                             cell.imageView.image = image
@@ -61,9 +61,10 @@ extension GalleryViewController{
           
           let cell = self.collectionView.cellForItem(at: indexPath) as! GalleryCollectionViewCell
           let _ = viewController?.view
-          
+        
+       
           self.viewController?.imageView.image = cell.imageView.image
-          self.viewController?.UIConfig(roverInfo: self.vehiclesViewModel[indexPath.row])
+        self.viewController?.UIConfig(roverInfo: self.vehiclesViewModel.vehicles[indexPath.row])
 
           popover?.passthroughViews = [self.view]
           popover?.sourceRect = CGRect(x: 250, y: 500, width: 0, height: 0)
@@ -85,7 +86,7 @@ extension GalleryViewController{
                   // call API
                   // set to true
                   print("Fetching...")
-              if self.vehiclesViewModel.count < 25{
+            if self.vehiclesViewModel.vehicles.count < 25{
                   
               }else{
                   loadVehicles(pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {

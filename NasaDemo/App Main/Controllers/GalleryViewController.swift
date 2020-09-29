@@ -32,8 +32,8 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     //Internal properties
     
-    internal var vehiclesViewModel : [GalleryViewModel] = []
-    internal var session = URLSession.shared
+    internal var vehiclesViewModel = GalleryViewModel()
+    
     internal var networkClient = NetworkClient.shared
     var isPageRefreshing = false
     var pageIndex = 1
@@ -57,6 +57,13 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
             
         })
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "updateUI"), object: nil, queue: OperationQueue.main) { (notification) in
+
+              self.collectionView.reloadData()
+              self.collectionView.refreshControl?.endRefreshing()
+             
+         }
 
 
     }
@@ -72,18 +79,15 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
              
              loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
                 
-                let cameras = self.vehiclesViewModel.map{
-                    
-                    $0.getCamera(by: self.selectedRover)
-                }
-                print("cameras: \(cameras)")
+//                let cameras = self.vehiclesViewModel.map{
+//
+//                    $0.getCamera(by: self.selectedRover)
+//                }
+//                print("cameras: \(cameras)")
                 
                 
              })
-
-             
-
-            
+   
         case 1:
             selectedRover = "Opportunity"
             loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
@@ -106,22 +110,25 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     {
         
         collectionView.refreshControl?.beginRefreshing()
-             networkClient.getRovers(roverName: selectedRover, pageIndex: 1, sucess: { [weak self] vehicles in
+             networkClient.getRovers(roverName: selectedRover, pageIndex: pageIndex, sucess: { [weak self] vehicles in
              guard let strongSelf = self else{
                  return
              }
              
              if strongSelf.pageIndex != 1{
                  
-                strongSelf.vehiclesViewModel += vehicles
+               // strongSelf.vehiclesViewModel.vehicles += vehicles
+                let rovers = strongSelf.vehiclesViewModel.vehicles + vehicles
+                strongSelf.vehiclesViewModel.addEntry(vehicles: rovers)
              }else{
           
-                strongSelf.vehiclesViewModel = vehicles
+               // strongSelf.vehiclesViewModel.vehicles = vehicles
+                strongSelf.vehiclesViewModel.addEntry(vehicles: vehicles)
              }
              
-             strongSelf.collectionView.refreshControl?.endRefreshing()
+    //         strongSelf.collectionView.refreshControl?.endRefreshing()
              
-             strongSelf.collectionView.reloadData()
+ //            strongSelf.collectionView.reloadData()
              strongSelf.isPageRefreshing = false
                 completionHandler()
          }) { [weak self] error in
@@ -130,7 +137,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
              }
              strongSelf.collectionView.refreshControl?.endRefreshing()
             completionHandler()
-             print("retrieving rovers faild")
+             print("retrieving rovers failed")
          }
         
         

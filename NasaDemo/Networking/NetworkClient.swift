@@ -37,13 +37,13 @@ public final class NetworkClient{
     
     public func getRovers(roverName:String,
                           pageIndex:Int,
-                          sucess _success: @escaping ([GalleryViewModel]) -> Void,
+                          sucess _success: @escaping ([VehicleInfo]) -> Void,
                           faluire _failure: @escaping (NetworkError) -> Void)
     {
-        let success: ([GalleryViewModel]) -> Void = { products in
+        let success: ([VehicleInfo]) -> Void = { rovers in
             
             DispatchQueue.main.async {
-                _success(products)
+                _success(rovers)
             }
         }
         
@@ -88,11 +88,11 @@ public final class NetworkClient{
                 
                 let vehicles = VehicleInfo.array(jsonArray: dictionray)
                 
-                let vehicelViewModel = vehicles.map{
-                    GalleryViewModel(vehicle: $0)
-                }
+//                let vehicelViewModel = vehicles.map{
+//                    GalleryViewModel(vehicle: $0)
+//                }
                 
-                success(vehicelViewModel)
+                success(vehicles)
                 
                 }else{
                 

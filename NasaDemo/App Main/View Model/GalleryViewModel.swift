@@ -13,29 +13,56 @@ typealias blockWithRovers = ([VehicleInfo]) -> Void
 
 protocol GallaryViewModelProtocol {
     
-     var vehicle : VehicleInfo { get }
+     var vehicles : [VehicleInfo] { get }
 }
 
 
 public class GalleryViewModel: GallaryViewModelProtocol {
 
     
-    public let vehicle: VehicleInfo
-
+    public var vehicles: [VehicleInfo] = []
     
-    public init(vehicle:VehicleInfo){
-        
-        self.vehicle = vehicle
-
-    }
+    fileprivate var observer = Observable<[VehicleInfo]>([])
     
-    func getCamera(by name: String) -> Camera{
+    func addEntry(vehicles: [VehicleInfo]){
         
-        if self.vehicle.rover.name == name{
-            return vehicle.camera
+        observer.bind = { _ in
+            
+            NotificationCenter.default.post(Notification(name: Notification.Name("updateUI")))
+            
         }
         
-        return Camera(name: "", full_name: "")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() ) {
+            
+            self.observer.value = vehicles
+            self.vehicles = vehicles
+        }
+
+       // let roverObservable =
     }
+    
+
+    
+    
+     subscript(at index:Int) -> VehicleInfo{
+        
+        return vehicles[index]
+    }
+
+    
+//    public init(vehicle:VehicleInfo){
+//
+//        self.vehicle = vehicle
+//
+//    }
+    
+//    func getCamera(by name: String) -> Camera{
+//        
+//        if self.vehicle.rover.name == name{
+//            return vehicle.camera
+//        }
+//        
+//        return Camera(name: "", full_name: "")
+//    }
 
 }

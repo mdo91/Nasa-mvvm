@@ -42,7 +42,7 @@ public final class VehicleInfo{
     }
     
     public init?(json: [String:Any]){
-       // print("json \(json)")
+        print("json \(json)")
  
         let imageURL1: URL?
         

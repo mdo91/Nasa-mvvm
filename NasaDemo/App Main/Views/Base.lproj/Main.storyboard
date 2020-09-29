@@ -84,7 +84,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LwE-GT-74f"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Sys-fl-6H6"/>
+                    <navigationItem key="navigationItem" id="Sys-fl-6H6">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="decrease.indent" catalog="system" id="dva-Ei-16T"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="byx-4Z-hTc" id="lMv-wE-Zlx"/>
                         <outlet property="flowLayout" destination="GSw-8R-WE9" id="PBw-Lr-7RS"/>
@@ -220,4 +222,7 @@
             <point key="canvasLocation" x="845.60000000000002" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="decrease.indent" catalog="system" width="128" height="89"/>
+    </resources>
 </document>
