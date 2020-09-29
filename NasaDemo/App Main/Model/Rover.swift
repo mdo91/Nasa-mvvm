@@ -8,12 +8,15 @@
 
 import Foundation
 
-enum Status: String{
+public enum Status: String{
     
     case active
     case inactive
     case complete
 }
+
+
+
 
 
 struct Rover {

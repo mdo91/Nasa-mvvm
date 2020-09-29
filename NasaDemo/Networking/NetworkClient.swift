@@ -34,4 +34,68 @@ public final class NetworkClient{
         
         self.baseURL = baseURL
     }
+    
+    public func getRovers(roverName:String,
+                          pageIndex:Int,
+                          sucess _success: @escaping ([VehicleInfo]) -> Void,
+                          faluire _failure: @escaping (NetworkError) -> Void)
+    {
+        let success: ([VehicleInfo]) -> Void = { products in
+            
+            DispatchQueue.main.async {
+                _success(products)
+            }
+        }
+        
+        let failure: (NetworkError) -> Void = { error in
+            
+            DispatchQueue.main.async {
+                _failure(error)
+            }
+            
+        }
+        //todo set url params
+
+        
+        let url = baseURL.appendingPathComponent("rovers/\(roverName)/photos?sol=1000&api_key=s0m3KJpvHCtD5J5pCoqD7k3YVeFIgrK0WdX9hsa8&page=\(pageIndex)").absoluteString.removingPercentEncoding
+        
+        print("URL: \(url ?? "not found")")
+        let urlWithPath = URL(string: url!)
+        let task = session.dataTask(with: urlWithPath!, completionHandler: { (data,
+            response, error) in
+            
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode.IsSuccessHTTPCode,
+            let data = data,
+            let jsonObject = try? JSONSerialization.jsonObject(with: data,options: []),
+            let json = jsonObject as? [String:Any] else{
+                
+                    if let error = error{
+                        
+                        failure(NetworkError(error: error))
+                    }else{
+                        
+                        failure(NetworkError(response: response))
+                    }
+                    
+                    return
+            }
+            
+            if let jsonobj = json[photosResponseEntity] as? [Any]{
+                
+                let dictionray = jsonobj.map{ $0 as! [String:Any] }
+                
+                let vehicles = VehicleInfo.array(jsonArray: dictionray)
+                success(vehicles)
+                
+                }else{
+                
+                failure(NetworkError(response: response))
+                
+            }
+  
+        })
+        task.resume()
+    }
 }

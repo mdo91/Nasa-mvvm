@@ -21,6 +21,8 @@
 		546B1EDC2522167700D0B856 /* Int+HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EDB2522167700D0B856 /* Int+HTTPStatusCode.swift */; };
 		546B1EDE2522264F00D0B856 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EDD2522264F00D0B856 /* NetworkError.swift */; };
 		546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EDF2522335A00D0B856 /* NetworkClient.swift */; };
+		546B1EE3252237C600D0B856 /* ServerEnvironments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 546B1EE2252237C600D0B856 /* ServerEnvironments.plist */; };
+		546B1EE625225AE400D0B856 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE525225AE400D0B856 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		546B1EDB2522167700D0B856 /* Int+HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+HTTPStatusCode.swift"; sourceTree = "<group>"; };
 		546B1EDD2522264F00D0B856 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		546B1EDF2522335A00D0B856 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		546B1EE2252237C600D0B856 /* ServerEnvironments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServerEnvironments.plist; sourceTree = "<group>"; };
+		546B1EE525225AE400D0B856 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +76,12 @@
 		54410F3C251CA78300BAF7EB /* NasaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				546B1EE425225ACB00D0B856 /* Constants */,
 				54410F51251CA79E00BAF7EB /* App Main */,
 				546B1ED82522153100D0B856 /* Networking */,
 				54410F3D251CA78300BAF7EB /* AppDelegate.swift */,
 				54410F3F251CA78300BAF7EB /* SceneDelegate.swift */,
+				54410F4B251CA78900BAF7EB /* Info.plist */,
 				54410F46251CA78900BAF7EB /* Assets.xcassets */,
 			);
 			path = NasaDemo;
@@ -140,9 +146,9 @@
 		546B1ED82522153100D0B856 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				546B1EDF2522335A00D0B856 /* NetworkClient.swift */,
 				546B1EDA2522155C00D0B856 /* Extentions */,
 				546B1ED92522154800D0B856 /* Models */,
-				546B1EDF2522335A00D0B856 /* NetworkClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -166,9 +172,17 @@
 		546B1EE12522360200D0B856 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				54410F4B251CA78900BAF7EB /* Info.plist */,
+				546B1EE2252237C600D0B856 /* ServerEnvironments.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		546B1EE425225ACB00D0B856 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EE525225AE400D0B856 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				546B1EE3252237C600D0B856 /* ServerEnvironments.plist in Resources */,
 				54410F4A251CA78900BAF7EB /* LaunchScreen.storyboard in Resources */,
 				54410F47251CA78900BAF7EB /* Assets.xcassets in Resources */,
 				54410F5D251CBCBE00BAF7EB /* Main.xcassets in Resources */,
@@ -244,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				546B1EDC2522167700D0B856 /* Int+HTTPStatusCode.swift in Sources */,
+				546B1EE625225AE400D0B856 /* Constants.swift in Sources */,
 				546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */,
 				54410F42251CA78300BAF7EB /* ViewController.swift in Sources */,
 				54410F3E251CA78300BAF7EB /* AppDelegate.swift in Sources */,
