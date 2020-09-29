@@ -28,5 +28,14 @@ public class GalleryViewModel: GallaryViewModelProtocol {
         self.vehicle = vehicle
 
     }
+    
+    func getCamera(by name: String) -> Camera{
+        
+        if self.vehicle.rover.name == name{
+            return vehicle.camera
+        }
+        
+        return Camera(name: "", full_name: "")
+    }
 
 }

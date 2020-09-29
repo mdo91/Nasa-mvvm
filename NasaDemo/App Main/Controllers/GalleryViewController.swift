@@ -70,14 +70,17 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         case 0:
              selectedRover = "Curiosity"
              
-             loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {})
-//                let roverArray = VehicleInfo.getRover(by: self.selectedRover, array: self.vehiclesViewModel)
-//                let cameraArray = roverArray.map {
-//                   $0.camera
-//                }
-//                print("available cameras \(cameraArray.count)")
-//
-//             })
+             loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+                
+                let cameras = self.vehiclesViewModel.map{
+                    
+                    $0.getCamera(by: self.selectedRover)
+                }
+                print("cameras: \(cameras)")
+                
+                
+             })
+
              
 
             
