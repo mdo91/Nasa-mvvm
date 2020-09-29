@@ -23,6 +23,7 @@
 		546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EDF2522335A00D0B856 /* NetworkClient.swift */; };
 		546B1EE3252237C600D0B856 /* ServerEnvironments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 546B1EE2252237C600D0B856 /* ServerEnvironments.plist */; };
 		546B1EE625225AE400D0B856 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE525225AE400D0B856 /* Constants.swift */; };
+		546B1EE825231E0000D0B856 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE725231E0000D0B856 /* GalleryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		546B1EDF2522335A00D0B856 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		546B1EE2252237C600D0B856 /* ServerEnvironments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServerEnvironments.plist; sourceTree = "<group>"; };
 		546B1EE525225AE400D0B856 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		546B1EE725231E0000D0B856 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +95,7 @@
 				546B1EE12522360200D0B856 /* Supporting Files */,
 				54410F58251CADF700BAF7EB /* Recources */,
 				54410F55251CA7D300BAF7EB /* Controllers */,
-				54410F54251CA7CB00BAF7EB /* Presenter */,
+				54410F54251CA7CB00BAF7EB /* View Model */,
 				54410F53251CA7BF00BAF7EB /* Views */,
 				54410F52251CA7AD00BAF7EB /* Model */,
 			);
@@ -119,11 +121,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		54410F54251CA7CB00BAF7EB /* Presenter */ = {
+		54410F54251CA7CB00BAF7EB /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				546B1EE725231E0000D0B856 /* GalleryViewModel.swift */,
 			);
-			path = Presenter;
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		54410F55251CA7D300BAF7EB /* Controllers */ = {
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				546B1EDC2522167700D0B856 /* Int+HTTPStatusCode.swift in Sources */,
+				546B1EE825231E0000D0B856 /* GalleryViewModel.swift in Sources */,
 				546B1EE625225AE400D0B856 /* Constants.swift in Sources */,
 				546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */,
 				54410F42251CA78300BAF7EB /* ViewController.swift in Sources */,
