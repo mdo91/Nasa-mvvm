@@ -142,8 +142,8 @@
             filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -151,64 +151,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BEE729F5-5BE1-4618-8F0A-280FADF2FA82"
+            uuid = "291B53F1-47F4-4784-9892-EDF1B6F7EFD8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
+            filePath = "NasaDemo/Networking/NetworkClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "loadVehicles(pageIndex:selectedRover:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "getRovers(roverName:pageIndex:sucess:faluire:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D74F1293-53B4-4CC6-9A6D-409EA0BBBB09"
+            uuid = "CA444BDA-2050-4832-931E-C276383B66D2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
+            filePath = "NasaDemo/Networking/NetworkClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "loadVehicles(pageIndex:selectedRover:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getRovers(roverName:pageIndex:sucess:faluire:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E81559E-7178-4A44-85B6-B88122F2C806"
+            uuid = "3B63D728-A558-4210-A4F4-9019633482FF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
+            filePath = "NasaDemo/Networking/NetworkClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "loadVehicles(pageIndex:selectedRover:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "20B88921-9AC1-478A-AE1B-78EA751CAAE7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NasaDemo/App Main/Controllers/GalleryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "getRovers(roverName:pageIndex:sucess:faluire:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

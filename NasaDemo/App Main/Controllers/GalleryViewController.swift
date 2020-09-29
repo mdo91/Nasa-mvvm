@@ -36,6 +36,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     internal var vehicles : [VehicleInfo] = []
     internal var session = URLSession.shared
+    internal var networkClient = NetworkClient.shared
     var isPageRefreshing = false
     var pageIndex = 1
     var selectedRover = "curiosity"
@@ -54,7 +55,11 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
-        loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+        
+        loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+            
+        })
+
 
     }
     
@@ -66,13 +71,30 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         switch sender.selectedSegmentIndex {
         case 0:
              selectedRover = "Curiosity"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+             
+             loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+                let roverArray = VehicleInfo.getRover(by: self.selectedRover, array: self.vehicles)
+                let cameraArray = roverArray.map {
+                   $0.camera
+                }
+                print("available cameras \(cameraArray.count)")
+                
+             })
+             
+
+            
         case 1:
             selectedRover = "Opportunity"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+            loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+                
+            })
         case 2:
             selectedRover = "Spirit"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover)
+            loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+                
+                    
+                }
+            )
         default:
             break
         }
@@ -82,93 +104,43 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     
-    func loadVehicles(pageIndex:Int, selectedRover:String){
+    func loadVehicles(pageIndex:Int, selectedRover:String, completionHandler: @escaping () -> Void)
+    {
         
         collectionView.refreshControl?.beginRefreshing()
-       // isPageRefreshing = true
-        let url = URL(string: "https://api.nasa.gov/mars-photos/api/v1/rovers/\(selectedRover)/photos?sol=1000&api_key=s0m3KJpvHCtD5J5pCoqD7k3YVeFIgrK0WdX9hsa8&page=\(pageIndex)")!
-        let task = session.dataTask(with: url) { (data, response, error) in
-            
-            if let error = error{
-                
-                print("Photos download failed \(error)")
-                return
-            }
-            
-            guard let data = data else{
-                print("Photos download failed: data is nil!")
-                return
-                
-            }
-            
-            let jsonArray: [String:Any]
-            
-            do{
-                guard let jsonObject = try JSONSerialization.jsonObject(with: data, options:[]) as? [String:Any] else{
-                    
-                    print("Photos download failed: invalid JSON \(data)")
-                    return
-                }
-                if let jsonobj = jsonObject["photos"] as? [Any]{
-                    
+             networkClient.getRovers(roverName: selectedRover, pageIndex: 1, sucess: { [weak self] vehicles in
+             guard let strongSelf = self else{
+                 return
+             }
+             
+             if strongSelf.pageIndex != 1{
                  
-                    let dictionray = jsonobj.map{ $0 as! [String:Any] }
-
-   
-                    let vehicles = VehicleInfo.array(jsonArray: dictionray)
-                    
-                    DispatchQueue.main.async { [weak self] in
-                        
-                        guard let selfStrong = self else{
-                            
-                          print("nil class object ")
-                            return
-                        }
-                        
-                        if pageIndex != 1{
-                            
-                        selfStrong.vehicles += vehicles
-                        }else{
-                            
-                            selfStrong.vehicles = vehicles
-                        }
-                        
-                        selfStrong.collectionView.refreshControl?.endRefreshing()
-                        
-                        selfStrong.collectionView.reloadData()
-                        selfStrong.isPageRefreshing = false
-                        
-                    }
-                    
-                }else{
-                    
-                    
-                    
-                    print("Photos download failed: invalid JSON")
-                }
-
-                jsonArray = jsonObject
-            }catch{
-                
-                print("Photos download failed: invalid JSON")
-                return
-       
-            }
- 
-
-            
-        }
-        task.resume()
-        
+                 strongSelf.vehicles += vehicles
+             }else{
+          
+                 strongSelf.vehicles = vehicles
+             }
+             
+             strongSelf.collectionView.refreshControl?.endRefreshing()
+             
+             strongSelf.collectionView.reloadData()
+             strongSelf.isPageRefreshing = false
+                completionHandler()
+         }) { [weak self] error in
+             guard let strongSelf = self else{
+                 return
+             }
+             strongSelf.collectionView.refreshControl?.endRefreshing()
+            completionHandler()
+             print("retrieving rovers faild")
+         }
         
         
     }
+    
+    
     // MARK: UICollectionViewDataSource
-    
-    
-    
-    
-
+  
      func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -191,8 +163,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
               DispatchQueue.global().async {
 
                   if  let url = self.vehicles[indexPath.row].img_src, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-        
-                      
+
                       DispatchQueue.main.async {
                           cell.imageView.image = image
                           
@@ -244,7 +215,9 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
             if self.vehicles.count < 25{
                 
             }else{
-                loadVehicles(pageIndex: pageIndex, selectedRover: selectedRover)
+                loadVehicles(pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {
+                    
+                })
             }
             
                 isPageRefreshing = true
