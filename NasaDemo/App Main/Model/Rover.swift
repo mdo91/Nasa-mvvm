@@ -19,7 +19,7 @@ public enum Status: String{
 
 
 
-struct Rover {
+struct Rover:Equatable {
     
     var name: String
     var landing_date: String

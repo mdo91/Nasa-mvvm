@@ -60,7 +60,6 @@ public final class NetworkClient{
         var url = ""
 
         if !cameraName.isEmpty{
-            //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=DEMO_KEY
             
             url = baseURL.appendingPathComponent("rovers/\(roverName)/photos?sol=1000&camera=\(cameraName)&api_key=s0m3KJpvHCtD5J5pCoqD7k3YVeFIgrK0WdX9hsa8&page=\(pageIndex)").absoluteString.removingPercentEncoding!
             
@@ -70,7 +69,7 @@ public final class NetworkClient{
         }
         
         
-        print("URL: \(url ?? "not found")")
+      //  print("URL: \(url ?? "not found")")
         let urlWithPath = URL(string: url)
         let task = session.dataTask(with: urlWithPath!, completionHandler: { (data,
             response, error) in
