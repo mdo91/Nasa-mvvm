@@ -42,7 +42,7 @@ public final class VehicleInfo{
     }
     
     public init?(json: [String:Any]){
-       // print("json \(json)")
+        print("json \(json)")
  
         let imageURL1: URL?
         
@@ -85,7 +85,7 @@ public final class VehicleInfo{
 
         for json in jsonArray{
             
-            print("json \(json)")
+            //print("json \(json)")
 
             guard let vehicle = VehicleInfo(json:json ) else{ continue}
             array.append(vehicle)

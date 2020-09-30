@@ -24,6 +24,10 @@
 		546B1EE3252237C600D0B856 /* ServerEnvironments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 546B1EE2252237C600D0B856 /* ServerEnvironments.plist */; };
 		546B1EE625225AE400D0B856 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE525225AE400D0B856 /* Constants.swift */; };
 		546B1EE825231E0000D0B856 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE725231E0000D0B856 /* GalleryViewModel.swift */; };
+		546B1EEA25233B6300D0B856 /* GalleryViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EE925233B6300D0B856 /* GalleryViewControllerExtension.swift */; };
+		546B1EF02523666600D0B856 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EEF2523666600D0B856 /* Binding.swift */; };
+		546B1EF82523B6BE00D0B856 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546B1EF72523B6BE00D0B856 /* FilterTableViewController.swift */; };
+		546B1EFB2523B71200D0B856 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546B1EFA2523B71200D0B856 /* Filter.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		546B1EE2252237C600D0B856 /* ServerEnvironments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServerEnvironments.plist; sourceTree = "<group>"; };
 		546B1EE525225AE400D0B856 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		546B1EE725231E0000D0B856 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		546B1EE925233B6300D0B856 /* GalleryViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewControllerExtension.swift; sourceTree = "<group>"; };
+		546B1EEF2523666600D0B856 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
+		546B1EF72523B6BE00D0B856 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		546B1EFA2523B71200D0B856 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 				546B1EE425225ACB00D0B856 /* Constants */,
 				54410F51251CA79E00BAF7EB /* App Main */,
 				546B1ED82522153100D0B856 /* Networking */,
+				546B1EF12523B55800D0B856 /* Camera Filter */,
+				546B1EEE2523663F00D0B856 /* Binding */,
 				54410F3D251CA78300BAF7EB /* AppDelegate.swift */,
 				54410F3F251CA78300BAF7EB /* SceneDelegate.swift */,
 				54410F4B251CA78900BAF7EB /* Info.plist */,
@@ -134,6 +144,7 @@
 			children = (
 				54410F59251CB97700BAF7EB /* GalleryViewController.swift */,
 				54410F41251CA78300BAF7EB /* ViewController.swift */,
+				546B1EE925233B6300D0B856 /* GalleryViewControllerExtension.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +197,55 @@
 				546B1EE525225AE400D0B856 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		546B1EEE2523663F00D0B856 /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EEF2523666600D0B856 /* Binding.swift */,
+			);
+			path = Binding;
+			sourceTree = "<group>";
+		};
+		546B1EF12523B55800D0B856 /* Camera Filter */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EF92523B6DB00D0B856 /* Views */,
+				546B1EF42523B58900D0B856 /* Resources */,
+				546B1EF32523B57B00D0B856 /* Models */,
+				546B1EF22523B57400D0B856 /* Controllers */,
+			);
+			path = "Camera Filter";
+			sourceTree = "<group>";
+		};
+		546B1EF22523B57400D0B856 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EF72523B6BE00D0B856 /* FilterTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		546B1EF32523B57B00D0B856 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		546B1EF42523B58900D0B856 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		546B1EF92523B6DB00D0B856 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				546B1EFA2523B71200D0B856 /* Filter.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +308,7 @@
 			files = (
 				546B1EE3252237C600D0B856 /* ServerEnvironments.plist in Resources */,
 				54410F4A251CA78900BAF7EB /* LaunchScreen.storyboard in Resources */,
+				546B1EFB2523B71200D0B856 /* Filter.storyboard in Resources */,
 				54410F47251CA78900BAF7EB /* Assets.xcassets in Resources */,
 				54410F5D251CBCBE00BAF7EB /* Main.xcassets in Resources */,
 				54410F45251CA78300BAF7EB /* Main.storyboard in Resources */,
@@ -264,7 +325,9 @@
 				546B1EDC2522167700D0B856 /* Int+HTTPStatusCode.swift in Sources */,
 				546B1EE825231E0000D0B856 /* GalleryViewModel.swift in Sources */,
 				546B1EE625225AE400D0B856 /* Constants.swift in Sources */,
+				546B1EF02523666600D0B856 /* Binding.swift in Sources */,
 				546B1EE02522335A00D0B856 /* NetworkClient.swift in Sources */,
+				546B1EEA25233B6300D0B856 /* GalleryViewControllerExtension.swift in Sources */,
 				54410F42251CA78300BAF7EB /* ViewController.swift in Sources */,
 				54410F3E251CA78300BAF7EB /* AppDelegate.swift in Sources */,
 				54410F61251CE24700BAF7EB /* Rover.swift in Sources */,
@@ -272,6 +335,7 @@
 				54410F5A251CB97700BAF7EB /* GalleryViewController.swift in Sources */,
 				546B1EDE2522264F00D0B856 /* NetworkError.swift in Sources */,
 				54410F63251CE4F800BAF7EB /* Camera.swift in Sources */,
+				546B1EF82523B6BE00D0B856 /* FilterTableViewController.swift in Sources */,
 				54410F40251CA78300BAF7EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
