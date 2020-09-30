@@ -23,7 +23,9 @@ class GalleryCollectionViewCell: UICollectionViewCell{
 }
 
 
-class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, cameraSelectionProtocol {
+
+    
 
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -37,8 +39,10 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     internal var networkClient = NetworkClient.shared
     var isPageRefreshing = false
     var pageIndex = 1
-    var selectedRover = "curiosity"
+    var selectedRover = "Curiosity"
     var viewController: ViewController?
+    var cameraName = ""
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +50,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 
         collectionView.delegate = self
         collectionView.dataSource = self
+       
 
         let width = view.frame.width/2
         let height = view.frame.height/3.5
@@ -54,7 +59,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         
-        loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+        loadVehicles(cameraName: cameraName, pageIndex: 1, selectedRover: selectedRover, completionHandler: {
             
         })
         
@@ -73,29 +78,28 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBAction func segmentedButtonAction(_ sender: UISegmentedControl) {
         
+        pageIndex = 1
+        
         switch sender.selectedSegmentIndex {
         case 0:
              selectedRover = "Curiosity"
              
-             loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
-                
-//                let cameras = self.vehiclesViewModel.map{
-//
-//                    $0.getCamera(by: self.selectedRover)
-//                }
-//                print("cameras: \(cameras)")
+             loadVehicles(cameraName: cameraName, pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {
+
                 
                 
              })
    
         case 1:
+           
             selectedRover = "Opportunity"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+            loadVehicles(cameraName: cameraName, pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {
                 
             })
         case 2:
+           
             selectedRover = "Spirit"
-            loadVehicles(pageIndex: 1, selectedRover: selectedRover, completionHandler: {
+            loadVehicles(cameraName: cameraName, pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {
                 
                     
                 }
@@ -106,29 +110,25 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
     }
 
-    func loadVehicles(pageIndex:Int, selectedRover:String, completionHandler: @escaping () -> Void)
+    func loadVehicles(cameraName:String,pageIndex:Int, selectedRover:String, completionHandler: @escaping () -> Void)
     {
         
         collectionView.refreshControl?.beginRefreshing()
-             networkClient.getRovers(roverName: selectedRover, pageIndex: pageIndex, sucess: { [weak self] vehicles in
+        networkClient.getRovers(roverName: selectedRover, pageIndex: pageIndex, cameraName: cameraName, sucess: { [weak self] vehicles in
              guard let strongSelf = self else{
                  return
              }
              
              if strongSelf.pageIndex != 1{
-                 
-               // strongSelf.vehiclesViewModel.vehicles += vehicles
+
                 let rovers = strongSelf.vehiclesViewModel.vehicles + vehicles
                 strongSelf.vehiclesViewModel.addEntry(vehicles: rovers)
              }else{
-          
-               // strongSelf.vehiclesViewModel.vehicles = vehicles
+
+                
                 strongSelf.vehiclesViewModel.addEntry(vehicles: vehicles)
              }
-             
-    //         strongSelf.collectionView.refreshControl?.endRefreshing()
-             
- //            strongSelf.collectionView.reloadData()
+
              strongSelf.isPageRefreshing = false
                 completionHandler()
          }) { [weak self] error in
@@ -143,9 +143,40 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
     }
     
+    //MARK: selecting camera protocol
+    func cameraSelected(cameraName: String) {
+        self.cameraName = cameraName
+        
+        loadVehicles(cameraName: cameraName, pageIndex: 1, selectedRover: selectedRover) {
+            
+        }
+    }
+    
     @IBAction func FilteringOptionAction(_ sender: Any) {
         
         let next = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "filterTableView") as! FilterTableViewController
+             next.delegateCamera = self
+//        var cameras : [String] = []
+//        let roversInfo = self.vehiclesViewModel.vehicles.filter {
+//
+//             $0.rover.name == self.selectedRover
+//
+//        }
+//        let cameraInfo = roversInfo.map{
+//
+//            $0.camera.name
+//        }
+//        for camera in cameraInfo{
+//            
+//            if cameras.contains(camera){
+//                print("cameras ***** \(camera)")
+//                continue
+//            }
+//            cameras.append(camera)
+//        }
+//        next.cameras = cameras
+        
+        
         self.navigationController?.pushViewController(next, animated: true)
     }
     

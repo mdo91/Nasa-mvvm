@@ -37,6 +37,7 @@ public final class NetworkClient{
     
     public func getRovers(roverName:String,
                           pageIndex:Int,
+                          cameraName:String,
                           sucess _success: @escaping ([VehicleInfo]) -> Void,
                           faluire _failure: @escaping (NetworkError) -> Void)
     {
@@ -55,12 +56,22 @@ public final class NetworkClient{
             
         }
         //todo set url params
-
         
-        let url = baseURL.appendingPathComponent("rovers/\(roverName)/photos?sol=1000&api_key=s0m3KJpvHCtD5J5pCoqD7k3YVeFIgrK0WdX9hsa8&page=\(pageIndex)").absoluteString.removingPercentEncoding
+        var url = ""
+
+        if !cameraName.isEmpty{
+            //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=DEMO_KEY
+            
+            url = baseURL.appendingPathComponent("rovers/\(roverName)/photos?sol=1000&camera=\(cameraName)&api_key=s0m3KJpvHCtD5J5pCoqD7k3YVeFIgrK0WdX9hsa8&page=\(pageIndex)").absoluteString.removingPercentEncoding!
+            
+        }else{
+            url = baseURL.appendingPathComponent("rovers/\(roverName)/photos?sol=1000&api_key=s0m3KJpvHCtD5J5pCoqD7k3YVeFIgrK0WdX9hsa8&page=\(pageIndex)").absoluteString.removingPercentEncoding!
+      
+        }
+        
         
         print("URL: \(url ?? "not found")")
-        let urlWithPath = URL(string: url!)
+        let urlWithPath = URL(string: url)
         let task = session.dataTask(with: urlWithPath!, completionHandler: { (data,
             response, error) in
             

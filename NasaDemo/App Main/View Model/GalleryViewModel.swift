@@ -48,6 +48,8 @@ public class GalleryViewModel: GallaryViewModelProtocol {
         
         return vehicles[index]
     }
+    
+    
 
     
 //    public init(vehicle:VehicleInfo){
@@ -56,8 +58,11 @@ public class GalleryViewModel: GallaryViewModelProtocol {
 //
 //    }
     
-//    func getCamera(by name: String) -> Camera{
-//        
+//    func getCamera(by name: String) -> [Camera]{
+//
+//
+//        let cameras =
+//
 //        if self.vehicle.rover.name == name{
 //            return vehicle.camera
 //        }

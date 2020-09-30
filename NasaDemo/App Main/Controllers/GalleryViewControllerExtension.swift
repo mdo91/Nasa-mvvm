@@ -89,7 +89,7 @@ extension GalleryViewController{
             if self.vehiclesViewModel.vehicles.count < 25{
                   
               }else{
-                  loadVehicles(pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {
+                loadVehicles(cameraName: cameraName, pageIndex: pageIndex, selectedRover: selectedRover, completionHandler: {
                       
                   })
               }
