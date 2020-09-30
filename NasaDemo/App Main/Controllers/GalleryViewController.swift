@@ -114,6 +114,9 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     {
         
         collectionView.refreshControl?.beginRefreshing()
+        
+     //   print("cameraName \(cameraName)")
+      //  print("pageIndex \(pageIndex)")
         networkClient.getRovers(roverName: selectedRover, pageIndex: pageIndex, cameraName: cameraName, sucess: { [weak self] vehicles in
              guard let strongSelf = self else{
                  return
@@ -145,9 +148,12 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     //MARK: selecting camera protocol
     func cameraSelected(cameraName: String) {
-        self.cameraName = cameraName
         
-        loadVehicles(cameraName: cameraName, pageIndex: 1, selectedRover: selectedRover) {
+        
+        self.cameraName = cameraName
+        pageIndex = 1
+        
+        loadVehicles(cameraName: cameraName, pageIndex: pageIndex, selectedRover: selectedRover) {
             
         }
     }
