@@ -49,7 +49,8 @@ class GalleryModelViewTests: XCTestCase {
         vehicles.append(VehicleInfo(img_src: imageUrl2, earth_date: earthDate2, camera: cameraInfo2, rover: rover2))
         sut.addEntry(vehicles: vehicles)
         
-        XCTAssertEqual(vehicles.count, 2)
+        print("test_totalRoversCount_2 \(sut.vehicles.count) ============= array count\(vehicles.count)")
+        XCTAssertEqual(sut.vehicles.count, vehicles.count)
     }
     
     
