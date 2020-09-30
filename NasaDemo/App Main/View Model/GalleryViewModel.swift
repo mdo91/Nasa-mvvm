@@ -31,11 +31,13 @@ public class GalleryViewModel: GallaryViewModelProtocol {
             NotificationCenter.default.post(Notification(name: Notification.Name("updateUI")))
             
         }
-        
+        self.vehicles = vehicles
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() ) {
             
             self.observer.value = vehicles
-            self.vehicles = vehicles
+         //   self.vehicles = vehicles
+            print("vehicles \(self.vehicles.count)")
+            
         }
 
        // let roverObservable =
