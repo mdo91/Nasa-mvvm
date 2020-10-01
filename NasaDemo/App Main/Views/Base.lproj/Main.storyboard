@@ -36,7 +36,7 @@
         <!--Mars-->
         <scene sceneID="xbC-Sr-k3v">
             <objects>
-                <viewController id="cDZ-p1-aGP" customClass="GalleryViewController" customModule="NasaDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="galleryViewControllerID" id="cDZ-p1-aGP" customClass="GalleryViewController" customModule="NasaDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnf-uR-cDV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
