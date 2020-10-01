@@ -39,6 +39,7 @@ extension GalleryViewController{
 
                         DispatchQueue.main.async {
                             cell.imageView.image = image
+                        //    cell.configUI(imageUrl: url)
                             
                         }
                     }

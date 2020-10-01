@@ -18,6 +18,27 @@ class GalleryCollectionViewCell: UICollectionViewCell{
         super.layoutSubviews()
         
     }
+    
+    func configUI(imageUrl: URL){
+        
+        DispatchQueue.global().async {
+            
+            guard let data = try? Data(contentsOf: imageUrl) else{
+                return
+            }
+            
+            DispatchQueue.main.async {
+                  
+                  self.imageView.image = UIImage(data: data)
+              }
+        }
+        
+
+        
+  
+        
+        
+    }
 
     
 }
@@ -162,26 +183,6 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         let next = UIStoryboard(name: "Filter", bundle: nil).instantiateViewController(withIdentifier: "filterTableView") as! FilterTableViewController
              next.delegateCamera = self
-//        var cameras : [String] = []
-//        let roversInfo = self.vehiclesViewModel.vehicles.filter {
-//
-//             $0.rover.name == self.selectedRover
-//
-//        }
-//        let cameraInfo = roversInfo.map{
-//
-//            $0.camera.name
-//        }
-//        for camera in cameraInfo{
-//            
-//            if cameras.contains(camera){
-//                print("cameras ***** \(camera)")
-//                continue
-//            }
-//            cameras.append(camera)
-//        }
-//        next.cameras = cameras
-        
         
         self.navigationController?.pushViewController(next, animated: true)
     }
